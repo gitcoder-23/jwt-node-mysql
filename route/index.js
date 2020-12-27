@@ -6,6 +6,7 @@ const app = require('express').Router();
 
 // Importing employee routes
 const employeeRoute = require('../controller/employee/employee.route');
+
 app.use(employeeRoute);
 
 module.exports = app;

@@ -8,6 +8,7 @@ require('dotenv').config();
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
 const port = process.env.PORT || 3008;
 const host = process.env.HOST || 'localhost';
 const fileUpload = require('express-fileupload');
@@ -16,51 +17,51 @@ const fileUpload = require('express-fileupload');
 const route = require('./route');
 
 function startServer() {
-    app.listen(port);
-    console.log('\n');
-    consola.success('compiled successfully');
-    consola.success({
-      message: `Server listening on http://${host}:${port}`,
-      badge: true,
-    });
-  }
+  app.listen(port);
+  console.log('\n');
+  consola.success('compiled successfully');
+  consola.success({
+    message: `Server listening on http://${host}:${port}`,
+    badge: true,
+  });
+}
 
- // Parsing json and urlencoded data
+// Parsing json and urlencoded data
 function innitiatingBodyParser() {
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
-  } 
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+}
 
-  function initiateCors() {
-    app.use(cors());
-  }
+function initiateCors() {
+  app.use(cors());
+}
 
-  function initiateFileuploader() {
-    app.use(fileUpload());
-  }
+function initiateFileuploader() {
+  app.use(fileUpload());
+}
 
-  function initiateMorgan() {
-    app.use(morgan('tiny'));
-  }
+function initiateMorgan() {
+  app.use(morgan('tiny'));
+}
 
-  function initiateTestRoute() {
-    app.get('/', (req, res) => {
-      res.json('Node server started:)');
-    });
-  }
+function initiateTestRoute() {
+  app.get('/', (req, res) => {
+    res.json('Node server started:)');
+  });
+}
 
-  function initiateProjectRotue() {
-    app.use(route);
-  }
+function initiateProjectRotue() {
+  app.use(route);
+}
 
 
 
-  (async () => {
-    innitiatingBodyParser();
-    initiateCors();
-    initiateFileuploader();
-    initiateMorgan();
-    initiateTestRoute();
-    initiateProjectRotue();
-    startServer();
-  })();
+(async () => {
+  innitiatingBodyParser();
+  initiateCors();
+  initiateFileuploader();
+  initiateMorgan();
+  initiateTestRoute();
+  initiateProjectRotue();
+  startServer();
+})();
