@@ -9,7 +9,7 @@ module.exports = {
   async putEmployee(req, res) {
     // const { eid } = req.params.id;
     // const id = parseInt(req.params.id);
-    const { eid } = req.params;
+    const { id } = req.params;
     const { fname } = req.body;
     const { lname } = req.body;
     const { cname } = req.body;
@@ -21,10 +21,11 @@ module.exports = {
     console.log(updateQuery);
     try {
       await pool.query(updateQuery,
-        [fname, lname, cname, address, eid])
+        [fname, lname, cname, address, id])
         .then((row) => {
           if (row) {
             // res.json("data updated successfully");
+            console.log(row);
             res.send({ status: 200, employee_updated: true });
           }
         })
