@@ -2,12 +2,12 @@
 
 // const postgreSql = require('pg');
 
-const { Pool, Client } = require('pg');
+const { createPool } = require('mysql');
 require('dotenv').config();
 
 class Database {
   constructor() {
-    this.connection = new Pool({
+    this.connection = createPool({
       connectionLimit: 100,
       host: process.env.DB_HOST,
       user: process.env.DB_USER,

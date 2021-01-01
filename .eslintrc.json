@@ -2,8 +2,8 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "node": true
-        // "js": true
+        "node": true,
+        "js": true
     },
     "extends": [
         "airbnb-base"

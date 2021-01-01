@@ -3,6 +3,8 @@ const consola = require('consola');
 const morgan = require('morgan');
 
 const app = express();
+// data pass from js to json by below
+app.use(express.json());
 
 require('dotenv').config();
 
