@@ -5,7 +5,7 @@ const pool = require('../../db/db');
 
 module.exports = {
   async addEmployee(req, res) {
-    const { id } = req.body;
+    // const { id } = req.body;
     const { fname } = req.body;
     const { lname } = req.body;
     const { cname } = req.body;
@@ -14,14 +14,14 @@ module.exports = {
     // console.log(id, fname, lname, cname, address);
 
     let insertQuery = 'INSERT INTO employee ';
-    insertQuery += '(id, fname, lname, ';
+    insertQuery += '(fname, lname, ';
     insertQuery += 'cname, address) VALUES';
-    insertQuery += ' ( $1, $2, $3, $4, $5)';
+    insertQuery += ' ( $1, $2, $3, $4)';
     // console.log(insertQuery);
 
     try {
       pool.query(insertQuery,
-        [id, fname, lname, cname, address])
+        [fname, lname, cname, address])
         .then((row) => {
           if (row) {
             // console.log(row);

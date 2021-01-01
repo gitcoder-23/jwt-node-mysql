@@ -4,7 +4,7 @@ const pool = require('../../db/db');
 module.exports = {
   async getEmployee(req, res) {
     let selectQuery = 'SELECT id, fname, lname, cname, address ';
-    selectQuery += 'FROM employee ORDER BY id ASC';
+    selectQuery += 'FROM employees ORDER BY id ASC';
 
     pool.query(selectQuery)
       .then((row) => {

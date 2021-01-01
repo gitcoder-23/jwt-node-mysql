@@ -3,7 +3,7 @@ const pool = require('../../db/db');
 module.exports = {
   async delEmployee(req, res) {
     const { id } = req.params;
-    const deleteQuery = 'DELETE FROM employee WHERE id = $1';
+    const deleteQuery = 'DELETE FROM employees WHERE id = $1';
     console.log(deleteQuery);
 
     pool.query(deleteQuery, [id])

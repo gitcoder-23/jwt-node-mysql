@@ -15,15 +15,13 @@ class Database {
       password: process.env.PASSWORD,
       debug: false,
     });
-
-   
   }
 
   query(sql, args) {
     // console.log(sql, args);
     return new Promise((resolve, reject) => {
       this.connection.query(sql, args, (err, rows) => {
-        console.log(err,rows)
+        console.log(err, rows);
         if (err) {
           return reject(err);
         }
