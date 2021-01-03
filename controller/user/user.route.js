@@ -7,7 +7,8 @@ const userSelect = require('./user_select');
 const userInsert = require('./user_insert');
 const userUpdate = require('./user_update');
 const userDelete = require('./user_delete');
-const login = require('./user_login');
+const userLogin = require('./user_login');
+const userLogout = require('./user_login');
 
 // All Routes for API
 app.get('/getuser', checkToken, userSelect.getUser);
@@ -15,7 +16,8 @@ app.get('/monouser/:id', checkToken, userSelect.singleUser);
 app.post('/adduser', userInsert.addUser);
 app.put('/putuser/:id', checkToken, userUpdate.putUser);
 app.delete('/deluser/:id', checkToken, userDelete.delUser);
-app.post('/login', login.login);
+app.post('/login', userLogin.login);
+app.post('/logout', userLogout.logout);
 
 module.exports = app;
 
